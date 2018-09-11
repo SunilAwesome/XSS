@@ -1,0 +1,32 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+
+<script>
+ var postData = {
+      slice_id: "9999",
+      header: 
+
+["portfolio_id","cusip","service_type","product_type","cusip_description","var_position_quantity","var
+
+_position_amount","var_requirement_amount","var_type"],
+	rows:[["P0000692","9128282Z2","DVP","BOND","1.625-TNOTE-2020-10-
+
+15","68000000.00","66924990.60","86060.15","Sensitivity","","","","",""]]
+    };
+
+    let axiosConfig = {
+      headers: {
+          'Content-Type': 'application/json;charset=UTF-8',
+          "Access-Control-Allow-Origin": "*",
+      }
+    };
+
+    axios.post('https://portal.web.appqa.dtcc.org/uxa/gsd/v1/var-portfolio?deposit-account-
+
+id=00009504', postData, axiosConfig)
+    .then((res) => {
+      console.log("RESPONSE RECEIVED: ", res);
+    })
+    .catch((err) => {
+      console.log("AXIOS ERROR: ", err);
+    })
+</script>
